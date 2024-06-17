@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세 페이지3</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-image {
+            flex: 1;
+            text-align: center;
+        }
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+        .product-details h2 {
+            margin-bottom: 10px;
+        }
+        .product-details p {
+            margin: 5px 0;
+        }
+        .product-options select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        .product-actions {
+            margin-top: 20px;
+        }
+        .product-actions button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .total-price {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-image">
+            <img src="img/ribbon1.jpg" alt="제품 이미지" width="500" height="500">
+        </div>
+        <div class="product-details">
+            <h2>14k 18k 펄리본 원터치 귀걸이</h2>
+            <p>판매가: <del>260,000원</del></p>
+            <p>할인가: <del>260,000원</del> -> <span id="discountedPrice">195,880원</span></p>
+            <p>브랜드: 새미쥬얼리</p>
+            <div class="product-options">
+                <label for="goldType">골드종류</label>
+                <select id="goldType">
+                    <option value="0">옵션 선택</option>
+                    <option value="50000">14k (+50,000원)</option>
+                    <option value="100000">18k (+100,000원)</option>
+                </select>
+                <label for="goldColor">골드색상</label>
+                <select id="goldColor">
+                    <option value="0">옵션 선택</option>
+                    <option value="10000">옐로우 골드 (+10,000원)</option>
+                    <option value="15000">로즈 골드 (+15,000원)</option>
+                    <option value="20000">화이트 골드 (+20,000원)</option>
+                </select>
+            </div>
+            <div class="total-price">
+                총 상품 금액: <span id="totalPrice">0</span>원
+            </div>
+            <div class="product-actions">
+                <button onclick="calculateTotalPrice()">구매하기</button>
+                <button>장바구니</button>
+                <button>관심상품</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const goldTypeSelect = document.getElementById('goldType');
+        const goldColorSelect = document.getElementById('goldColor');
+        const totalPriceSpan = document.getElementById('totalPrice');
+
+        function calculateTotalPrice() {
+            const basePrice = 195880;
+            const goldTypePrice = parseInt(goldTypeSelect.value);
+            const goldColorPrice = parseInt(goldColorSelect.value);
+
+            const totalPrice = basePrice + goldTypePrice + goldColorPrice;
+            totalPriceSpan.textContent = totalPrice.toLocaleString();
+        }
+
+        goldTypeSelect.addEventListener('change', calculateTotalPrice);
+        goldColorSelect.addEventListener('change', calculateTotalPrice);
+    </script>
+</body>
+</html>

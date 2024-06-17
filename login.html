@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="javascript" href="script.js">
+</head>
+<div id="wrapper">
+    <header>
+       <img src="img/main_logo.jpg">
+    </header>
+    <nav id="nav">
+        <ul>
+            <li class="icon"><a href="#"><img src="img/fire.png" width="10" height="15"> BEST</a></li>
+            <li><a href="#">TOPS</a></li>
+            <li><a href="#">DRESSES</a></li>
+            <li><a href="#">BOTTOMS</a></li>
+            <li><a href="#">ACCESSORIES</a></li>
+            <li><a href="#">ON SALE</a></li>
+        </ul>
+    </nav>
+<section class="mainimg_login">
+    <body id="login-body">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" method="post">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <a href="#" id="forgot-username-link">Forgot Username?</a> |
+            <a href="#" id="forgot-password-link">Forgot Password?</a>
+
+            <form class="forgot-form" id="forgot-username-form" style="display: none;">
+                <h3>Find Username</h3>
+                <label for="email-for-username">Email</label>
+                <input type="email" id="email-for-username" name="email-for-username" required>
+                <button type="submit">Submit</button>
+
+                <form class="forgot-form" id="forgot-password-form" style="display: none;">
+                    <h3>Reset Password</h3>
+                    <label for="email-for-password">Email</label>
+                    <input type="email" id="email-for-password" name="email-for-password" required>
+                    <button type="submit">Submit</button>
+
+                </form>
+            </form>
+        </div>
+    </div>
+    </div>
+</section>
+
+</body>
+
+    <script src="script.js">
+        document.querySelector('.login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email === "" || password === "") {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            alert(`Welcome back!`);
+            // 
+        });
+    </script>
+
+
+</html>
